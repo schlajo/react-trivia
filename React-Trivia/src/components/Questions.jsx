@@ -1,20 +1,27 @@
-import React, { useState } from 'react'; // Added useState import
+import React, { useState, useEffect } from 'react'; // Added useState import
 import '../App.css';
+import './Questions.css';
 
 function Questions({ question, answer, onNext }) {
     const [showAnswer, setShowAnswer] = useState(false); // State to show/hide the answer
   
+        // Reset `showAnswer` to false whenever the question changes
+        useEffect(() => {
+            setShowAnswer(false);
+        }, [question]);
+    
+    
     const handleShowAnswer = () => setShowAnswer(true);
   
     return (
-      <div className="card">
-        <p>{question}</p>
+      <div className="questions">
+        <p className="header" >{question}</p>
         {showAnswer ? (
             <p>Answer: {answer}</p>
         ) : (
-            <button onClick={handleShowAnswer}>Show Answer</button>
+            <button className="btn" onClick={handleShowAnswer}>Show Answer</button>
         )}
-        <button onClick={onNext} style={{ marginTop: '10px' }}>Next</button> {/* Next button */}
+        <button className="btn" onClick={onNext} >Next</button> {/* Next button */}
       </div>
     );
 }

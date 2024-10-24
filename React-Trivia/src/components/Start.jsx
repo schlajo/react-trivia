@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import '../App.css';
+//import '../App.css';
 import './Start.css'
 
 function Start({ onStart }) {
   return (
-    <div className="btn-container">
+    <div>
       <button className="btn" onClick={onStart}>
         Start
       </button>

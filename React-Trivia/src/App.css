@@ -2,7 +2,7 @@
     text-align: center;
   }
   
-  .card {
+.card {
     background-color: blue;
     color: white;
     border-radius: 5px;
@@ -11,12 +11,8 @@
     text-align: center;
   }
 
-
-  .btn-container {
-    margin-top: 20px;
-  }
   
-  .btn {
+.btn {
     margin: 5px;
     padding: 10px 15px;
     background-color: blue;
@@ -24,11 +20,11 @@
     cursor: pointer;
   }
   
-  .btn:hover {
+.btn:hover {
     background-color: gray;
   }
   
-  header {
+header {
     background-color: blue;
     color: white;
     padding: 1em;
@@ -37,14 +33,14 @@
   }
   
 
-.questions {
+/* .questions {
     background-color: #3a3f47;
     border-radius: 8px;
     padding: 20px;
     width: 80%;
     max-width: 500px;
     margin: 20px auto;
-  }
+  } */
 
 
   
