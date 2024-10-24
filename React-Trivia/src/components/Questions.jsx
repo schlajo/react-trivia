@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; // Added useState import
 import '../App.css';
 
-function Questions({ question, answer }) {
+function Questions({ question, answer, onNext }) {
     const [showAnswer, setShowAnswer] = useState(false); // State to show/hide the answer
   
     const handleShowAnswer = () => setShowAnswer(true);
@@ -9,10 +9,15 @@ function Questions({ question, answer }) {
     return (
       <div className="card">
         <p>{question}</p>
-        {showAnswer ? <p>Answer: {answer}</p> : <button onClick={handleShowAnswer}>Show Answer</button>}
+        {showAnswer ? (
+            <p>Answer: {answer}</p>
+        ) : (
+            <button onClick={handleShowAnswer}>Show Answer</button>
+        )}
+        <button onClick={onNext} style={{ marginTop: '10px' }}>Next</button> {/* Next button */}
       </div>
     );
-  }
+}
   
 export default Questions;
 
