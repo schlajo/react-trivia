@@ -1,88 +1,78 @@
 .app {
     text-align: center;
-  }
-  
-.card {
-    background-color: blue;
-    color: white;
-    border-radius: 5px;
-    padding: 2em;
-    margin-top: 50px;
-    text-align: center;
-  }
+}
 
-  
-.btn {
-    margin: 5px;
-    padding: 10px 15px;
-    background-color: blue;
-    border: 10px;
-    cursor: pointer;
-  }
-  
-.btn:hover {
-    background-color: gray;
-  }
-  
 header {
     background-color: blue;
     color: white;
     padding: 1em;
     border-radius: 5px; /* Optional: Slightly rounded corners */
     text-align: center;
-  }
-  
+}
 
-/* .questions {
-    background-color: #3a3f47;
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    margin: 20px auto;
-  } */
-
-
-  
-  /* body {
-    font-family: 'Arial', sans-serif;
-    background-color: #282c34;
-    margin: 0;
-    padding: 0;
+.btn-start {     
+    font-size: 35px;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  } */
-  
-  /* .nav-bar {
-    background-color: #20232a;
-    padding: 10px;
-  }
-  
-  .question-card {
-    background-color: #3a3f47;
+    margin: 50px;
+    padding: 10px 15px;
+    background-color: purple;
+    border: 50px;
+    cursor: pointer;
+    width: 15%;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+     
+.btn-start:hover {
+    color: purple;
+    background-color: gray !important;
+} 
+.questions {
+    font-size: 25px;
+    color: white;
+    background-color: purple;
     border-radius: 8px;
     padding: 20px;
     width: 80%;
-    max-width: 500px;
-    margin: 20px auto;
+    max-width: 800px;
+    margin: 30px auto;
   }
-  
-  .answer-section button {
-    margin: 5px;
-    padding: 10px 20px;
-    background-color: #61dafb;
-    border: none;
-    border-radius: 5px;
+
+.btn-answers {
+    color: white;
+    margin: 10px;
+    margin-top: 10px;
+    padding: 10px 10px;
+    background-color: blue !important;
+    border: 10px;
+    border-radius: 10px;
     cursor: pointer;
-  }
+}
+     
+.btn-answers:hover {
+    color: purple;
+    background-color: gray !important;
+} 
   
-  .answer-section button:hover {
-    background-color: #21a1f1;
-  }
+.btn-next {
+    font-size: 25px;
+    width: 15%;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 20px;
+    color: purple;
+    background-color: white !important;
+    cursor: pointer;
+}
+.btn-next:hover {
+    color: purple;
+    background-color: gray !important;
+}
+
+
   
+/*   
   .score-section {
     font-size: 1.5rem;
   } */
