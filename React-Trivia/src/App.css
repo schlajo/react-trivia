@@ -5,15 +5,15 @@
 header {
     background-color: blue;
     color: white;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 10px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .btn-start {     
     font-size: 35px;
     color: white;
-    margin: 50px;
+    margin: 100px;
     padding: 10px 15px;
     background-color: purple;
     border: 50px;
@@ -28,20 +28,22 @@ header {
     background-color: gray !important;
 } 
 .questions {
-    font-size: 25px;
+    font-size: 30px;
     color: white;
     background-color: purple;
     border-radius: 8px;
-    padding: 20px;
+    padding: 25px;
     width: 80%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 30px auto;
+    margin-top: 10px;
   }
 
 .btn-answers {
     color: white;
     margin: 10px;
     margin-top: 10px;
+    margin-bottom: 25px;
     padding: 10px 10px;
     background-color: blue !important;
     border: 10px;
@@ -55,10 +57,10 @@ header {
 } 
   
 .btn-next {
-    font-size: 25px;
+    font-size: 30px;
     width: 15%;
-    margin: 20px auto;
-    padding: 15px 20px;
+    margin: 10px auto;
+    padding: 10px 20px;
     border: none;
     border-radius: 20px;
     color: purple;
@@ -71,13 +73,15 @@ header {
 }
   .score {
     position: fixed;
-    bottom: 215px;
+    bottom: 240px;
     width: 100%;
     text-align: center;
     font-size: 30px;
     color: white;
     background-color: blue;
-    padding: 15px;
+    padding-top: 15px;
   }
   
-  
+.btn-selected {
+    background-color: gray !important;
+  }

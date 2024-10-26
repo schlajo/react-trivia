@@ -13,36 +13,26 @@ function generateOptions(correctAnswer, allQuestions) {
   const incorrectOptions = allQuestions
     .filter((q) => q.capital !== correctAnswer)
     .sort(() => 0.5 - Math.random())
-    .slice(0, 3) // Select 3 incorrect options
+    .slice(0, 3)
     .map((q) => q.capital);
 
   return shuffleArray([...incorrectOptions, correctAnswer]);
 }
 
-
 function Questions({ question, correctAnswer, allQuestions, onNext }) {
   const [options, setOptions] = useState([]);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isCorrect, setIsCorrect] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
 
   useEffect(() => {
-    const newOptions = generateOptions(correctAnswer, allQuestions);
-    setOptions(newOptions);
-    setSelectedAnswer(null);
-    setIsCorrect(false);
-    setShowNextButton(false);
+    setOptions(generateOptions(correctAnswer, allQuestions));
+    setSelectedAnswer(null); // Reset selected answer
+    setShowNextButton(false); // Hide next button
   }, [question]);
 
   const handleAnswerClick = (answer) => {
-    setSelectedAnswer(answer);
-    const correct = answer === correctAnswer;
-    setIsCorrect(correct);
-    setShowNextButton(true); // Show the Next button after selecting an answer
-  };
-
-  const handleNext = () => {
-    onNext(isCorrect); // Pass if the answer was correct to parent
+    setSelectedAnswer(answer); // Track selected answer
+    setShowNextButton(true); // Show next button
   };
 
   return (
@@ -53,28 +43,24 @@ function Questions({ question, correctAnswer, allQuestions, onNext }) {
           <button
             key={index}
             className={`btn-answers ${
-              selectedAnswer === option
-                ? isCorrect
-                  ? 'correct'
-                  : 'incorrect'
-                : ''
+              selectedAnswer === option ? 'btn-selected' : ''
             }`}
             onClick={() => handleAnswerClick(option)}
-            disabled={selectedAnswer !== null}
+            disabled={selectedAnswer !== null} // Disable buttons after selecting an answer
           >
             {option}
           </button>
         ))}
       </div>
-
       {selectedAnswer && (
-        <p className={`feedback ${isCorrect ? 'correct' : 'incorrect'}`}>
-          {isCorrect ? 'Correct!' : `Incorrect. The correct answer is ${correctAnswer}.`}
+        <p className="feedback">
+          {selectedAnswer === correctAnswer
+            ? 'Correct!'
+            : `Incorrect. The correct answer is ${correctAnswer}.`}
         </p>
       )}
-
       {showNextButton && (
-        <button className="btn-next" onClick={handleNext}>
+        <button className="btn-next" onClick={onNext}>
           Next
         </button>
       )}
@@ -86,14 +72,9 @@ export default Questions;
 
 
 
-
-
-
-
 // import React, { useState, useEffect } from 'react';
 // import '../App.css';
 
-// // Helper function to shuffle an array (Fisher-Yates Shuffle)
 // function shuffleArray(array) {
 //   for (let i = array.length - 1; i > 0; i--) {
 //     const j = Math.floor(Math.random() * (i + 1));
@@ -102,43 +83,45 @@ export default Questions;
 //   return array;
 // }
 
-// // Generate random answer choices, including the correct one
 // function generateOptions(correctAnswer, allQuestions) {
 //   const incorrectOptions = allQuestions
 //     .filter((q) => q.capital !== correctAnswer)
 //     .sort(() => 0.5 - Math.random())
-//     .slice(0, 3)
+//     .slice(0, 3) // Select 3 incorrect options
 //     .map((q) => q.capital);
 
-//   const options = shuffleArray([...incorrectOptions, correctAnswer]);
-//   return options;
+//   return shuffleArray([...incorrectOptions, correctAnswer]);
 // }
+
 
 // function Questions({ question, correctAnswer, allQuestions, onNext }) {
 //   const [options, setOptions] = useState([]);
 //   const [selectedAnswer, setSelectedAnswer] = useState(null);
-//   const [isCorrect, setIsCorrect] = useState(null);
-//   const [showNextButton, setShowNextButton] = useState(false); // New state
+//   const [isCorrect, setIsCorrect] = useState(false);
+//   const [showNextButton, setShowNextButton] = useState(false);
 
-//   // Reset options and states whenever the question changes
 //   useEffect(() => {
 //     const newOptions = generateOptions(correctAnswer, allQuestions);
 //     setOptions(newOptions);
 //     setSelectedAnswer(null);
-//     setIsCorrect(null);
-//     setShowNextButton(false); // Hide Next button when a new question loads
+//     setIsCorrect(false);
+//     setShowNextButton(false);
 //   }, [question]);
 
 //   const handleAnswerClick = (answer) => {
 //     setSelectedAnswer(answer);
-//     setIsCorrect(answer === correctAnswer);
-//     setShowNextButton(true); // Show Next button after an answer is selected
+//     const correct = answer === correctAnswer;
+//     setIsCorrect(correct);
+//     setShowNextButton(true); // Show the Next button after selecting an answer
+//   };
+
+//   const handleNext = () => {
+//     onNext(isCorrect); // Pass if the answer was correct to parent
 //   };
 
 //   return (
 //     <div className="questions">
 //       <p>{question}</p>
-
 //       <div className="options">
 //         {options.map((option, index) => (
 //           <button
@@ -151,7 +134,7 @@ export default Questions;
 //                 : ''
 //             }`}
 //             onClick={() => handleAnswerClick(option)}
-//             disabled={selectedAnswer !== null} // Disable after choosing an answer
+//             disabled={selectedAnswer !== null}
 //           >
 //             {option}
 //           </button>
@@ -164,9 +147,8 @@ export default Questions;
 //         </p>
 //       )}
 
-//       {/* Conditionally render the Next button only if an answer is selected */}
 //       {showNextButton && (
-//         <button className="btn-next" onClick={onNext}>
+//         <button className="btn-next" onClick={handleNext}>
 //           Next
 //         </button>
 //       )}
@@ -175,7 +157,6 @@ export default Questions;
 // }
 
 // export default Questions;
-
 
 
 
