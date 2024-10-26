@@ -5,8 +5,8 @@
 header {
     background-color: blue;
     color: white;
-    padding: 1em;
-    border-radius: 5px; /* Optional: Slightly rounded corners */
+    padding: 15px;
+    border-radius: 5px;
     text-align: center;
 }
 
@@ -69,10 +69,15 @@ header {
     color: purple;
     background-color: gray !important;
 }
-
-
+  .score {
+    position: fixed;
+    bottom: 215px;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    background-color: blue;
+    padding: 15px;
+  }
   
-/*   
-  .score-section {
-    font-size: 1.5rem;
-  } */
+  
