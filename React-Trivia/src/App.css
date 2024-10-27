@@ -26,7 +26,8 @@ header {
 .btn-start:hover {
     color: purple;
     background-color: gray !important;
-} 
+}
+
 .questions {
     font-size: 30px;
     color: white;
@@ -75,7 +76,7 @@ header {
     background-color: gray !important;
   }
 
-  .score {
+.score {
     display: flex;            /* Align items side by side */
     justify-content: center;  
     gap: 250px;                /* Add space between question number and score */
@@ -96,4 +97,21 @@ header {
     font-weight: bold;
     text-align: center;
     padding: 20px;
+}
+
+.btn-retake {     
+    font-size: 35px;
+    color: white;
+    margin: 50px;
+    padding: 10px 15px;
+    background-color: purple;
+    border: 50px;
+    cursor: pointer;
+    width: 15%;
+    border-radius: 10px;
+}
+
+.btn-retake:hover {
+    color: purple;
+    background-color: gray !important;
 }

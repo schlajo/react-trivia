@@ -99,7 +99,11 @@ function App() {
     <div className="app">
       <Header />
       {showScoreCard ? (
-        <ScoreCard score={score} total={selectedQuestions.length} />
+        <ScoreCard 
+          score={score} 
+          total={selectedQuestions.length} 
+          onRetakeQuiz={handleStart}  // Pass handleStart to retake quiz
+        />
       ) : isStarted && currentQuestion ? (
         <Questions
           question={`What is the capital of ${currentQuestion.state}?`}
@@ -110,6 +114,7 @@ function App() {
       ) : (
         <Start onStart={handleStart} />
       )}
+      
       {/* Display the current question number and score */}
       <div className="score">
         <p>
