@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
@@ -78,16 +79,19 @@ function App() {
   };
 
   const handleNextQuestion = (isCorrect) => {
-    if (isCorrect) setScore((prev) => prev + 1);
-
+    if (isCorrect) {
+      setScore((prevScore) => prevScore + 1);  // Increment score only if correct
+    }
+  
     const nextIndex = currentQuestionIndex + 1;
     if (nextIndex < selectedQuestions.length) {
       setCurrentQuestionIndex(nextIndex);
     } else {
-      setShowScoreCard(true);
+      setShowScoreCard(true);  // Show final score card at the end
       setIsStarted(false);
     }
   };
+  
 
   const currentQuestion = selectedQuestions[currentQuestionIndex];
 
@@ -103,16 +107,21 @@ function App() {
           state={currentQuestion.state}
           onNext={handleNextQuestion}
         />
-      
       ) : (
         <Start onStart={handleStart} />
       )}
-      {/* Score Display Always Visible */}
+      {/* Display the current question number and score */}
       <div className="score">
-        <p>Score: {score} / 20</p>
+        <p>
+          Question: {isStarted ? currentQuestionIndex + 1 : 0} / {selectedQuestions.length}
+        </p>
+        <p>
+          Score: {score} / {isStarted ? currentQuestionIndex : 0}
+      </p>
       </div>
     </div>
   );
 }
 
 export default App;
+

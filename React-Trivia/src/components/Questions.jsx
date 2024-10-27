@@ -4,54 +4,54 @@ import '../App.css';
 // Mapping of states to their respective cities
 const stateCities = {
   Alabama: ["Birmingham", "Mobile", "Huntsville"],
-  Alaska: ["Anchorage", "Fairbanks", "Sitka"], // Replace with valid city
+  Alaska: ["Anchorage", "Fairbanks", "Sitka"],
   Arizona: ["Tucson", "Mesa", "Chandler"],
-  Arkansas: ["Fayetteville", "Fort Smith", "Jonesboro"], // Replace with valid city
+  Arkansas: ["Fayetteville", "Fort Smith", "Jonesboro"],
   California: ["Los Angeles", "San Francisco", "San Diego"],
-  Colorado: ["Colorado Springs", "Aurora", "Boulder"], // Replace with valid city
-  Connecticut: ["Bridgeport", "New Haven", "Stamford"], // Replace with valid city
-  Delaware: ["Wilmington", "Middletown", "Newark"], // Replace with valid city
-  Florida: ["Miami", "Orlando", "Tampa"], // Replace with valid city
+  Colorado: ["Colorado Springs", "Aurora", "Boulder"],
+  Connecticut: ["Bridgeport", "New Haven", "Stamford"],
+  Delaware: ["Wilmington", "Middletown", "Newark"],
+  Florida: ["Miami", "Orlando", "Tampa"], 
   Georgia: ["Macon", "Savannah", "Augusta"],
-  Hawaii: ["Pearl City", "Hilo", "Kailua"], // Replace with valid city
-  Idaho: ["Meridian", "Idaho Falls", "Pocatello"], // Replace with valid city
-  Illinois: ["Chicago", "Aurora", "Naperville"], // Correct spelling
-  Indiana: ["Fishers", "Fort Wayne", "Evansville"], // Replace with valid city
-  Iowa: ["Iowa City", "Cedar Rapids", "Davenport"], // Replace with valid city
-  Kansas: ["Wichita", "Overland Park", "Kansas City"], // Replace with valid city
-  Kentucky: ["Louisville", "Lexington", "Bowling Green"], // Replace with valid city
-  Louisiana: ["New Orleans", "Baton Rouge", "Shreveport"], // Replace with valid city
-  Maine: ["Portland", "Bangor", "Lewiston"], // Replace with valid city
-  Maryland: ["Baltimore", "Frederick", "Rockville"], // Replace with valid city
-  Massachusetts: ["Boston", "Worcester", "Springfield"],
-  Michigan: ["Detroit", "Grand Rapids", "Ann Arbor"], // Replace with valid city
-  Minnesota: ["Minneapolis", "Bloomington", "Rochester"], // Replace with valid city
-  Mississippi: ["Biloxi", "Gulfport", "Southaven"], // Replace with valid city
+  Hawaii: ["Pearl City", "Hilo", "Kailua"], 
+  Idaho: ["Meridian", "Idaho Falls", "Pocatello"], 
+  Illinois: ["Chicago", "Aurora", "Naperville"],
+  Indiana: ["Fishers", "Fort Wayne", "Evansville"], 
+  Iowa: ["Iowa City", "Cedar Rapids", "Davenport"], 
+  Kansas: ["Wichita", "Overland Park", "Kansas City"], 
+  Kentucky: ["Louisville", "Lexington", "Bowling Green"], 
+  Louisiana: ["New Orleans", "Lafayette", "Shreveport"], 
+  Maine: ["Portland", "Bangor", "Lewiston"], 
+  Maryland: ["Baltimore", "Frederick", "Rockville"], 
+  Massachusetts: ["Cambridge", "Worcester", "Springfield"],
+  Michigan: ["Detroit", "Grand Rapids", "Ann Arbor"], 
+  Minnesota: ["Minneapolis", "Bloomington", "Rochester"], 
+  Mississippi: ["Biloxi", "Gulfport", "Southaven"], 
   Missouri: ["Kansas City", "Saint Louis", "Springfield"],
-  Montana: ["Billings", "Missoula", "Great Falls"], // Replace with valid city
-  Nebraska: ["Omaha", "Kearney", "Bellevue"], // Replace with valid city
-  Nevada: ["Las Vegas", "Reno", "Henderson"], // Replace with valid city
+  Montana: ["Billings", "Missoula", "Great Falls"], 
+  Nebraska: ["Omaha", "Kearney", "Bellevue"], 
+  Nevada: ["Las Vegas", "Reno", "Henderson"], 
   "New Hampshire": ["Manchester", "Nashua", "Rochester"],
   "New Jersey": ["Newark", "Jersey City", "Paterson"],
-  "New Mexico": ["Albuquerque", "Rio Rancho", "Las Cruces"], // Replace with valid city
+  "New Mexico": ["Albuquerque", "Rio Rancho", "Las Cruces"], 
   "New York": ["Buffalo", "Rochester", "Syracuse"],
   "North Carolina": ["Charlotte", "Durham", "Greensboro"],
   "North Dakota": ["Fargo", "Minot", "Grand Forks"],
   Ohio: ["Toledo", "Cleveland", "Cincinnati"],
-  Oklahoma: ["Edmond", "Tulsa", "Norman"], // Replace with valid city
-  Oregon: ["Portland", "Gresham", "Eugene"], // Replace with valid city
-  Pennsylvania: ["Philadelphia", "Pittsburgh", "Allentown"], // Replace with valid city
-  "Rhode Island": ["Pawtucket", "Cranston", "Warwick"], // Replace with valid city
+  Oklahoma: ["Edmond", "Tulsa", "Norman"], 
+  Oregon: ["Portland", "Gresham", "Eugene"], 
+  Pennsylvania: ["Philadelphia", "Pittsburgh", "Allentown"], 
+  "Rhode Island": ["Pawtucket", "Cranston", "Warwick"], 
   "South Carolina": ["Mount Pleasant", "Charleston", "Greenville"],
-  "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen"], // Replace with valid city
+  "South Dakota": ["Sioux Falls", "Rapid City", "Aberdeen"], 
   Tennessee: ["Chattanooga", "Memphis", "Knoxville"],
   Texas: ["Houston", "San Antonio", "Dallas"],
-  Utah: ["St. George", "Provo", "West Valley City"], // Replace with valid city
-  Vermont: ["Burlington", "Essex", "South Burlington"], // Replace with valid city
-  Virginia: ["Virginia Beach", "Norfolk", "Chesapeake"], // Correct spelling
+  Utah: ["St. George", "Provo", "West Valley City"], 
+  Vermont: ["Burlington", "Essex", "South Burlington"], 
+  Virginia: ["Virginia Beach", "Norfolk", "Chesapeake"],
   Washington: ["Seattle", "Spokane", "Tacoma"],
   "West Virginia": ["Parkersburg", "Huntington", "Morgantown"],
-  Wisconsin: ["Milwaukee", "Kenosha", "Green Bay"], // Replace with valid city
+  Wisconsin: ["Milwaukee", "Kenosha", "Green Bay"], 
   Wyoming: ["Gillette", "Casper", "Laramie"],
 };
 
@@ -123,94 +123,17 @@ function Questions({ question, correctAnswer, state, onNext }) {
 
       {/* Conditionally render the Next button only if an answer is selected */}
       {showNextButton && (
-        <button className="btn-next" onClick={onNext}>
-          Next
-        </button>
-      )}
+  <button
+    className="btn-next"
+    onClick={() => onNext(selectedAnswer === correctAnswer)} // Pass true/false here
+  >
+    Next
+  </button>
+)}
+
     </div>
   );
 }
 
 export default Questions;
-
-
-
-
-
-
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import '../App.css';
-
-// function shuffleArray(array) {
-//   for (let i = array.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-//   return array;
-// }
-
-// function generateOptions(correctAnswer, allQuestions) {
-//   const incorrectOptions = allQuestions
-//     .filter((q) => q.capital !== correctAnswer)
-//     .sort(() => 0.5 - Math.random())
-//     .slice(0, 3)
-//     .map((q) => q.capital);
-
-//   return shuffleArray([...incorrectOptions, correctAnswer]);
-// }
-
-// function Questions({ question, correctAnswer, allQuestions, onNext }) {
-//   const [options, setOptions] = useState([]);
-//   const [selectedAnswer, setSelectedAnswer] = useState(null);
-//   const [showNextButton, setShowNextButton] = useState(false);
-
-//   useEffect(() => {
-//     setOptions(generateOptions(correctAnswer, allQuestions));
-//     setSelectedAnswer(null); // Reset selected answer
-//     setShowNextButton(false); // Hide next button
-//   }, [question]);
-
-//   const handleAnswerClick = (answer) => {
-//     setSelectedAnswer(answer); // Track selected answer
-//     setShowNextButton(true); // Show next button
-//   };
-
-//   return (
-//     <div className="questions">
-//       <p>{question}</p>
-//       <div className="options">
-//         {options.map((option, index) => (
-//           <button
-//             key={index}
-//             className={`btn-answers ${
-//               selectedAnswer === option ? 'btn-selected' : ''
-//             }`}
-//             onClick={() => handleAnswerClick(option)}
-//             disabled={selectedAnswer !== null} // Disable buttons after selecting an answer
-//           >
-//             {option}
-//           </button>
-//         ))}
-//       </div>
-//       {selectedAnswer && (
-//         <p className="feedback">
-//           {selectedAnswer === correctAnswer
-//             ? 'Correct!'
-//             : `Incorrect. The correct answer is ${correctAnswer}.`}
-//         </p>
-//       )}
-//       {showNextButton && (
-//         <button className="btn-next" onClick={onNext}>
-//           Next
-//         </button>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Questions;
 

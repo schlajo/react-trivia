@@ -71,17 +71,29 @@ header {
     color: purple;
     background-color: gray !important;
 }
-  .score {
-    position: fixed;
-    bottom: 240px;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    color: white;
-    background-color: blue;
-    padding-top: 15px;
-  }
-  
 .btn-selected {
     background-color: gray !important;
   }
+
+  .score {
+    display: flex;            /* Align items side by side */
+    justify-content: center;  
+    gap: 250px;                /* Add space between question number and score */
+    font-size: 36px;
+    color: white;
+    background-color: blue;
+    padding-top: 10px;
+    position: fixed;
+    bottom: 240px;
+    width: 110%;
+    margin-left: -110px;
+}
+  
+.final-score {
+    font-size: 36px;
+    margin-top: 50px;
+    color: purple;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
