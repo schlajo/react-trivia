@@ -3,9 +3,10 @@
 }
 
 header {
+    font-size: 50px;
     background-color: blue;
     color: white;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -37,7 +38,7 @@ header {
     width: 80%;
     max-width: 900px;
     margin: 30px auto;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
 .btn-answers {
@@ -75,21 +76,22 @@ header {
 .btn-selected {
     background-color: gray !important;
   }
-
-.score {
-    display: flex;            /* Align items side by side */
-    justify-content: center;  
-    gap: 250px;                /* Add space between question number and score */
+  .score {
+    display: flex;            
+    justify-content: space-between; /* Distribute space between elements */
+    align-items: center; /* Vertical alignment */
     font-size: 36px;
     color: white;
     background-color: blue;
-    padding-top: 10px;
+    padding: 10px 350px; /* Adjust padding to maintain spacing */
+    padding-top: 18px;
     position: fixed;
-    bottom: 240px;
-    width: 110%;
-    margin-left: -110px;
+    bottom: 200px;
+    left: 50%;               /* Start from the center horizontally */
+    transform: translateX(-50%); /* Center align using transform */
+    width: 100%;              /* Set a relative width */
 }
-  
+
 .final-score {
     font-size: 36px;
     margin-top: 50px;
